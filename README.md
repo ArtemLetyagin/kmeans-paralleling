@@ -30,5 +30,8 @@ python kmeans.py
 Divide the data into M chunks, where M is the number of processes. Each process will receive its own chunk of data and perform **step №2 (from 1.1)**, since it is at this step that the heaviest calculations take place.
 
 ## 4. Speedup
-<img src="https://github.com/ArtemLetyagin/kmeans-paralleling/blob/main/result.png" width="320" height="240" />
-<img src="https://github.com/ArtemLetyagin/kmeans-paralleling/blob/main/speedup.png" width="320" height="240" />
+<div style="display: flex; flex-direction: row">
+  <img src="https://github.com/ArtemLetyagin/kmeans-paralleling/blob/main/result.png" width="320" height="240" />
+  <img src="https://github.com/ArtemLetyagin/kmeans-paralleling/blob/main/speedup.png" width="320" height="240" />
+</div>
+
