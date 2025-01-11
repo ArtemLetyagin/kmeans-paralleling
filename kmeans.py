@@ -99,7 +99,8 @@ def fit_kmeans_parallel(data, n_clusters, max_iters, n_processes):
 # |      MAIN FUNCTION      |
 # +-------------------------+
 if __name__ == "__main__":
-    data = np.random.uniform(0, 1, (10000, 10))
+    
+    data = np.load("data.npy")
     n_clusters = 3
     max_iters = 1000
     
@@ -107,10 +108,12 @@ if __name__ == "__main__":
     print(f"Non parallel time: {T:.3f} s.")
 
     T_i = []
-    for i in range(1, 16):
+    speedup = []
+    for i in range(1, 12):
         t_i = fit_kmeans_parallel(data, n_clusters, max_iters, i)
         print(f"N processes = {i} time: {t_i:.3f} s.")
         T_i.append(t_i)
+        speedup.append(T/t_i)
         
     plt.plot(np.arange(1, len(T_i)+1), T_i, label="parallel", marker='.')
     plt.axhline(y=T, color='r', linestyle='-', label="non parallel")
@@ -118,3 +121,12 @@ if __name__ == "__main__":
     plt.xlabel("Number of processes")
     plt.ylabel("Time in seconds")
     plt.savefig("result.png")
+
+    plt.clf()
+    plt.plot(np.arange(1, len(speedup)+1), speedup, label="speedup", marker='.')
+    plt.legend()
+    plt.xlabel("Number of processes")
+    plt.ylabel("Speedup")
+    plt.savefig("speedup.png")
+
+
