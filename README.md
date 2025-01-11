@@ -28,3 +28,7 @@ python kmeans.py
 
 ## 3. How to parallel algorithm
 Divide the data into M chunks, where M is the number of processes. Each process will receive its own chunk of data and perform **step №2 (from 1.1)**, since it is at this step that the heaviest calculations take place.
+
+## 4. Speedup
+![comparison](result.png)
+![speedup](speedup.png)
